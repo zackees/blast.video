@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<title>Blast.video</title>
+</head>
+
+<script>
+	let html_video_container_template = `
+        <article class="video-container">
+          <a href="{{url}}" class="thumbnail" data-duration="{{duration}}">
+            <img class="thumbnail-image" src="{{img_src}}" />
+          </a>
+          <div class="video-bottom-section">
+            <!--a href="{{url}}">
+              <img class="channel-icon" src="http://unsplash.it/36/36?gravity=center" />
+            </a-->
+            <div class="video-details">
+              <a href="{{url}}" class="video-title">{{title}}</a>
+              <a href="{{channel_url}}" class="video-channel-name">{{channel_name}}</a>
+              <div class="video-metadata">
+                <span>{{view_snippet}}</span>
+                •
+                <span>{{date_published}}</span>
+			  </div>
+			  <div class="video-metadata">
+                <i>
+                  <span>Source:</span>
+				  <span>{{source}}</span>
+                </i>
+              </div>
+            </div>
+          </div>
+        </article>
+		`
+</script>
+
+<body>
+	<header class="header">
+		<a href="#">
+			<img src="logo.png" alt="Blast Logo" class="site-logo" />
+		</a>
+		<p class="subtitle"><i>Intelligence for the masses.</i></p>
+		<!--form class="search-bar">
+			<input class="search-input" type="search" placeholder="Search" aria-label="Search" />
+			<button type="submit" class="search-btn">
+				<img src="magnify.svg" />
+			</button>
+		</form -->
+		<!--div class="menu-icons">
+			<a href="#">
+				<img src="video-plus.svg" alt="Upload Video" />
+			</a>
+			<a href="#">
+				<img src="apps.svg" alt="Apps" />
+			</a>
+			<a href="#">
+				<img src="bell.svg" alt="Notifications" />
+			</a>
+			<a href="#">
+				<img class="menu-channel-icon" src="http:///unsplash.it/36/36?gravity=center" alt="Your Channel" />
+			</a>
+		</div-->
+	</header>
+	<div class="categories">
+		<section class="category-section">
+			<span><button class="category active" id="button_independent_censored">Independent-Censored</button></span>
+			<span><button class="category" id="button_independent">Independent</button></span>
+			<span><button class="category" id='button_coninc'>Mainstream Right</button></span>
+			<span><button class="category" id='button_infowars'>InfoWars</button></span>
+		</section>
+	</div>
+	<div class="videos">
+		<section class="video-section" id="video_section_fresh">
+			<!--article class="video-container"> </article--->
+		</section>
+
+		<section class="video-section" id="video_section_all_others">
+			<!--article class="video-container"> </article--->
+		</section>
+		<!--section class="video-section">
+      <h2 class="video-section-title">
+        Special Section
+        <button class="video-section-title-close">&times;</button>
+      </h2>
+      <article class="video-container">
+        <a href="#" class="thumbnail" data-duration="12:24">
+          <img class="thumbnail-image" src="http://unsplash.it/250/150?gravity=center" />
+        </a>
+        <div class="video-bottom-section">
+          <a href="#">
+            <img class="channel-icon" src="http://unsplash.it/36/36?gravity=center" />
+          </a>
+          <div class="video-details">
+            <a href="#" class="video-title">Video Title</a>
+            <a href="#" class="video-channel-name">Channel Name</a>
+            <div class="video-metadata">
+              <span>12K views</span>
+              •
+              <span>1 week ago</span>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="video-container">
+        <a href="#" class="thumbnail" data-duration="12:24">
+          <img class="thumbnail-image" src="http://unsplash.it/250/150?gravity=center" />
+        </a>
+        <div class="video-bottom-section">
+          <a href="#">
+            <img class="channel-icon" src="http://unsplash.it/36/36?gravity=center" />
+          </a>
+          <div class="video-details">
+            <a href="#" class="video-title">Video Title</a>
+            <a href="#" class="video-channel-name">Channel Name</a>
+            <div class="video-metadata">
+              <span>12K views</span>
+              •
+              <span>1 week ago</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section class="video-section">
+      <article class="video-container">
+        <a href="#" class="thumbnail" data-duration="12:24">
+          <img class="thumbnail-image" src="http://unsplash.it/250/150?gravity=center" />
+        </a>
+        <div class="video-bottom-section">
+          <a href="#">
+            <img class="channel-icon" src="http://unsplash.it/36/36?gravity=center" />
+          </a>
+          <div class="video-details">
+            <a href="#" class="video-title">Video Title</a>
+            <a href="#" class="video-channel-name">Channel Name</a>
+            <div class="video-metadata">
+              <span>12K views</span>
+              •
+              <span>1 week ago</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section-->
+	</div>
+
+
+	<!-- Dependencies-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+	<!-- Note that this is executed after the dependencies load. -->
+	<script>
+
+		function roundTo(n, digits) {
+			var negative = false;
+			if (digits === undefined) {
+				digits = 0;
+			}
+			if (n < 0) {
+				negative = true;
+				n = n * -1;
+			}
+			var multiplicator = Math.pow(10, digits);
+			n = parseFloat((n * multiplicator).toFixed(11));
+			n = (Math.round(n) / multiplicator).toFixed(digits);
+			if (negative) {
+				n = (n * -1).toFixed(digits);
+			}
+			return n;
+		}
+
+		function formatViews(v) {
+			if (v > 1000) {
+				v = parseFloat(v) / 1000;
+				if (v >= 80) {
+					v = roundTo(v, 0)
+				} else {
+					v = roundTo(v, 1)
+				}
+
+				return "" + v + "k";
+			}
+			return "" + v;
+		}
+
+
+		function json_ingest(json_data) {
+			//console.log("json_ingest called");
+			let now = moment();
+			function make_video_container(video_info) {
+				function get_date_str(timestamp) {
+					let differenceInMs = now.diff(moment(timestamp)); // diff yields milliseconds
+					let duration = moment.duration(differenceInMs); // moment.duration accepts ms
+					let differenceInMinutes = Math.round(duration.asMinutes());
+					let differenceInHours = duration.asHours();
+					let differenceInDays = duration.asDays();
+					if (differenceInDays > 1.0) {
+						let days_int = parseInt("" + differenceInDays)
+						if (days_int == 1) {
+							return "1 day ago"
+						} else {
+							return days_int + " days ago"
+						}
+					}
+					if (differenceInMinutes < 60) {
+						if (differenceInMinutes != 1) {
+							return differenceInMinutes + " minutes ago"
+						} else {
+							return differenceInMinutes + " minute ago"
+						}
+					}
+					let hours = roundTo(differenceInHours, 1)
+					if (hours > 5) {
+						hours = roundTo(hours, 0)
+					}
+					let hours_str = "" + hours
+					if (hours_str.endsWith(".0")) {
+						hours_str = hours_str.substring(0, hours_str.length - 2)
+					}
+					if (hours > 1) {
+						return hours_str + " hours ago"
+					} else {
+						return hours_str + " hour ago"
+					}
+				}
+				let channel_name = video_info["channel_name"]
+				let channel_url = video_info["channel_url"]
+				let date_published = get_date_str(video_info["date_published"])
+				let description = video_info["description"]
+				let duration = video_info["duration"]
+				let iframe_src = video_info["iframe_src"]
+				let img_src = video_info["img_src"]
+				let source = video_info["source"]
+				let title = video_info["title"]
+				let url = video_info["url"]
+				let views = formatViews(video_info["views"])
+				let view_snippet = views + ` views`
+				if (views == '?' || views == '') {
+					view_snippet = ''
+				}
+				if (duration == "?") {
+					duration = ""
+				}
+				let resolved_html = html_video_container_template
+					.replaceAll('{{title}}', title)
+					.replaceAll('{{img_src}}', img_src)
+					.replaceAll('{{channel_name}}', channel_name)
+					.replaceAll('{{channel_url}}', channel_url)
+					.replaceAll('{{view_snippet}}', view_snippet)
+					.replaceAll('{{source}}', source)
+					.replaceAll('{{url}}', url)
+					.replaceAll('{{date_published}}', date_published)
+					.replaceAll('{{duration}}', duration)
+				return resolved_html
+			}
+			let data = JSON.parse(json_data)
+			let update_time = data['__update_time']
+			let video_list = data['content']
+
+			function sort_by_date_published(item0, item1) {
+				let a = moment(item0['date_published']);
+				let b = moment(item1['date_published']);
+				if (a > b) {
+					return -1;
+				}
+				if (a == b) {
+					return 0;
+				}
+				return 1;
+			}
+			// sort according to freshest first.
+			video_list.sort(sort_by_date_published)
+
+
+			let fresh_video_html = "<h3 class=\"video-section-title\">Fresh Videos</h3>"
+			let fresh_video_used = false
+			let video_html = ""
+
+			video_list.forEach(function (video_info) {
+				timestamp = video_info["date_published"]
+
+				let differenceInMs = now.diff(moment(timestamp)); // diff yields milliseconds
+				let duration = moment.duration(differenceInMs); // moment.duration accepts ms
+				let differenceInMinutes = duration.asMinutes(); // if you would like to have the output 559
+
+				let vid_html = make_video_container(video_info)
+				if (differenceInMinutes < 60 * 3) {
+					fresh_video_html += vid_html
+					fresh_video_used = true
+				} else {
+					video_html += vid_html
+				}
+			})
+
+			//console.log("setting the html", video_html)
+			if (fresh_video_used) {
+				document.getElementById("video_section_fresh").innerHTML = fresh_video_html;
+			} else {
+				document.getElementById("video_section_fresh").innerHTML = '';
+			}
+			document.getElementById("video_section_all_others").innerHTML = video_html;
+		}
+		function http_fetch(theUrl, callback_success) {
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", theUrl, true); // false for synchronous request
+
+			xhr.onload = function (e) {
+				if (xhr.readyState === 4) {
+					if (xhr.status === 200) {
+						callback_success(xhr.responseText);
+					} else {
+						console.error(xhr.statusText);
+					}
+				}
+			};
+			xhr.onerror = function (e) {
+				console.error(xhr.statusText);
+			};
+			xhr.send(null);
+		}
+
+		let btn_infowars = document.getElementById("button_infowars")
+		let btn_indep = document.getElementById("button_independent")
+		let btn_coninc = document.getElementById("button_coninc")
+		let btn_indep_censored = document.getElementById("button_independent_censored")
+
+		btn_indep_censored.onclick = function () {
+			btn_infowars.classList.remove("active");
+			button_coninc.classList.remove("active");
+			btn_indep.classList.remove("active");
+			btn_indep_censored.classList.remove("active");
+
+			btn_indep_censored.classList.add("active");
+			document.getElementById("video_section_fresh").innerHTML = ''
+			document.getElementById("video_section_all_others").innerHTML = ''
+			http_fetch("independent_censored.json", json_ingest)
+		}
+		btn_indep.onclick = function () {
+			btn_infowars.classList.remove("active");
+			button_coninc.classList.remove("active");
+			btn_indep.classList.remove("active");
+			btn_indep_censored.classList.remove("active");
+
+			btn_indep.classList.add("active");
+			document.getElementById("video_section_fresh").innerHTML = ''
+			document.getElementById("video_section_all_others").innerHTML = ''
+			http_fetch("independent.json", json_ingest)
+		}
+		btn_infowars.onclick = function () {
+			btn_infowars.classList.remove("active");
+			button_coninc.classList.remove("active");
+			btn_indep.classList.remove("active");
+			btn_indep_censored.classList.remove("active");
+
+			btn_infowars.classList.add("active");
+			document.getElementById("video_section_fresh").innerHTML = ''
+			document.getElementById("video_section_all_others").innerHTML = ''
+			http_fetch("infowars.json", json_ingest)
+		}
+		btn_coninc.onclick = function () {
+			btn_infowars.classList.remove("active");
+			button_coninc.classList.remove("active");
+			btn_indep.classList.remove("active");
+			btn_indep_censored.classList.remove("active");
+			button_coninc.classList.add("active");
+			document.getElementById("video_section_fresh").innerHTML = ''
+			document.getElementById("video_section_all_others").innerHTML = ''
+			http_fetch("coninc.json", json_ingest)
+		}
+
+		btn_indep_censored.onclick()
+	</script>
+
+</body>
+
+</html>

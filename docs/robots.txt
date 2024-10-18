@@ -1,0 +1,3 @@
+Sitemap: https://www.blast.video/assets/seo/videositemap.xml
+User-agent: *
+Disallow:

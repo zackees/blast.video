@@ -1,0 +1,1 @@
+importScripts("google_workbox_6.1.5-sw.js"),workbox.routing.registerRoute((({request:e})=>"image"==e.destination),new workbox.strategies.CacheFirst);

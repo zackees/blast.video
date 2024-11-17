@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <!--
+     This is an example of a full RSS specification that blast.video can ingest easily.
+     NOTE that this is exactly the same as youtube's rss scheme, but we have an additional field media:duration
+     YouTube rss demo: https://www.youtube.com/feeds/videos.xml?channel_id=UCG749Dj4V2fKa143f8sE60Q
+
+     Also note this atom format which will also be accepted:
+     https://killstream.libsyn.com/rss
+-->
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCG749Dj4V2fKa143f8sE60Q"/>
+ <id>yt:channel:UCG749Dj4V2fKa143f8sE60Q</id>
+ <yt:channelId>UCG749Dj4V2fKa143f8sE60Q</yt:channelId>
+ <title>Tim Pool</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCG749Dj4V2fKa143f8sE60Q"/>
+ <author>
+  <name>Tim Pool</name>
+  <uri>https://www.youtube.com/channel/UCG749Dj4V2fKa143f8sE60Q</uri>
+ </author>
+ <published>2011-12-22T13:40:47+00:00</published>
+ <entry>
+  <id>yt:video:lbMBebvJSro</id>
+  <yt:videoId>lbMBebvJSro</yt:videoId>
+  <yt:channelId>UCG749Dj4V2fKa143f8sE60Q</yt:channelId>
+  <title>HUGE Wave Of Democrats Quit, 11 Admin Staff &amp; 31 In Congress Quit As GOP Set To Win 2022 Midterms</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=lbMBebvJSro"/>
+  <author>
+   <name>Tim Pool</name>
+   <uri>https://www.youtube.com/channel/UCG749Dj4V2fKa143f8sE60Q</uri>
+  </author>
+  <published>2022-04-04T20:00:23+00:00</published>
+  <updated>2022-04-04T21:05:56+00:00</updated>
+  <media:group>
+   <media:title>HUGE Wave Of Democrats Quit, 11 Admin Staff &amp; 31 In Congress Quit As GOP Set To Win 2022 Midterms</media:title>
+   <media:duration>00:32:23</media:duration>
+   <media:content url="https://www.youtube.com/v/lbMBebvJSro?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/lbMBebvJSro/hqdefault.jpg" width="480" height="360"/>
+   <media:description><![CDATA[HUGE Wave Of Democrats Quit, 11 Admin Staff blah blah blah]]></media:description>
+   <media:community>
+    <media:statistics views="59889"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

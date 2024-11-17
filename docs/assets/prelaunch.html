@@ -1,0 +1,254 @@
+<html lang="en">
+
+<!-- DOC
+logo_full_shader.html?v=0 (selects the 0th shader for the background).
+-->
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    :root {
+        --top_coming_soon_offset: 0px;
+    }
+
+    h1 {
+        font-size: 40pt;
+    }
+
+
+    body {
+        margin: 0;
+        font-family: Arial;
+        font-size: 17px;
+    }
+
+    #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .content {
+        position: fixed;
+        top: var(--top_coming_soon_offset);
+        width: 100%;
+        color: #f1f1f1;
+        width: 100%;
+        margin: 0;
+    }
+
+    .svg-logo {
+        width: 100%;
+    }
+
+    #myBtn {
+        width: 200px;
+        font-size: 18px;
+        padding: 10px;
+        border: none;
+        background: #000;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    #myBtn:hover {
+        background: #ddd;
+        color: black;
+    }
+
+    @media screen and (min-width: 1400px) {
+        .svg-logo {
+            width: 80%;
+        }
+    }
+</style>
+
+
+<style>
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: table;
+        background-color: rgb(64, 64, 64);
+    }
+
+    .container {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .center {
+        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+
+    <video autoplay muted loop id="myVideo" style="filter: brightness(65%);">
+        <source src="./usa_flag_loop.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <div id="logo_container" width="100%" height="100%" style="padding: 10%; visibility: hidden;">
+        <h1 id="coming_soon" class="content">Coming soon! March 29th!</h1>
+        <svg id="svg" class="center svg-logo" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0, 0, 184.278,32.98969072164948"
+            style="opacity: 1; filter: drop-shadow(0px 0px 4px rgb(255, 255, 255));">
+            <g id="svgg">
+                <path id="path0" d="M131.418 2.432
+                    C 126.336 3.497,123.433 6.546,123.236 11.025
+                    C 123.022 15.901,125.324 17.901,133.376 19.835
+                    C 138.139 20.979,139.175 21.542,139.175 22.983
+                    C 139.175 25.837,132.284 26.060,126.873 23.381
+                    C 125.989 22.943,125.223 22.636,125.170 22.697
+                    C 125.005 22.890,122.680 28.173,122.680 28.357
+                    C 122.680 28.682,126.180 30.148,128.239 30.686
+                    C 138.988 33.493,148.370 28.592,146.917 20.929
+                    C 146.195 17.123,143.999 15.566,136.859 13.798
+                    C 131.343 12.433,130.277 11.740,131.198 10.117
+                    C 132.510 7.805,137.240 7.601,141.888 9.657
+                    C 142.708 10.019,143.417 10.277,143.464 10.230
+                    C 143.625 10.069,145.888 4.565,145.817 4.505
+                    C 143.726 2.718,135.620 1.551,131.418 2.432
+                    M2.835 5.395
+                    L 2.835 8.213 10.374 8.294
+                    C 19.775 8.397,20.955 8.817,20.208 11.800
+                    C 19.738 13.674,19.254 13.778,10.503 13.867
+                    L 2.835 13.946 2.835 16.638
+                    L 2.835 19.330 10.631 19.331
+                    C 20.631 19.333,21.649 19.607,21.649 22.294
+                    C 21.649 24.938,20.424 25.258,10.297 25.258
+                    L 2.835 25.258 2.835 28.093
+                    L 2.835 30.928 11.534 30.919
+                    C 22.857 30.907,25.321 30.473,27.797 28.052
+                    C 31.210 24.715,30.082 18.688,25.649 16.574
+                    L 24.774 16.157 25.890 15.304
+                    C 29.029 12.907,29.204 7.362,26.212 5.084
+                    C 23.352 2.907,21.472 2.598,11.018 2.586
+                    L 2.835 2.577 2.835 5.395 M45.361 16.753
+                    L 45.361 30.928 56.057 30.928
+                    L 66.753 30.928 66.753 27.706
+                    L 66.753 24.485 60.052 24.485
+                    L 53.351 24.485 53.351 13.531
+                    L 53.351 2.577 49.356 2.577
+                    L 45.361 2.577 45.361 16.753 M84.665 16.028
+                    C 81.405 23.428,78.598 29.808,78.427 30.206
+                    L 78.118 30.928 82.204 30.928
+                    L 86.290 30.928 90.371 20.718
+                    L 94.452 10.508 94.897 11.504
+                    C 95.141 12.052,96.996 16.646,99.018 21.714
+                    L 102.695 30.928 106.879 30.928
+                    L 111.063 30.928 110.166 28.930
+                    C 109.672 27.832,106.856 21.482,103.907 14.820
+                    L 98.545 2.706 94.569 2.639
+                    L 90.593 2.572 84.665 16.028
+                    M159.021 5.799
+                    L 159.021 9.021 163.402 9.021
+                    L 167.784 9.021 167.784 19.974
+                    L 167.784 30.928 171.778 30.928
+                    L 175.773 30.928 175.773 19.974
+                    L 175.773 9.021 180.026 9.021
+                    L 184.278 9.021 184.278 5.799
+                    L 184.278 2.577 171.649 2.577
+                    L 159.021 2.577 159.021 5.799" xstroke="#777" xstroke-width=".5px" fill="#ffffff"
+                    fill-rule="evenodd"></path>
+            </g>
+        </svg>
+
+        <div style="padding-bottom: 40px;"></div>
+
+
+
+        <svg id="svg_video_logo" class="center svg-logo" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="212, 0, 186.278,32.98969072164948"
+            style="opacity: 1; filter: drop-shadow(0px 0px 4px rgb(255, 255, 255));">
+            <g id="svgg">
+                <path id="path0" d="
+                    
+                    M379.374 2.317
+                    C 367.329 4.238,362.458 18.521,370.977 26.940 C 379.339 35.204,394.775 31.534,397.572 20.616
+                    C 400.342 9.803,391.047 0.456,379.374 2.317
+
+                    
+                    M215.274 2.893 C 216.274 5.465,223.061 21.132,223.172 21.128
+                    C 223.373 21.119,227.322 11.983,227.313 11.548 C 227.309 11.363,226.511 9.298,225.539 6.959 L 223.773 2.706 219.459 2.635
+                    C 216.047 2.579,215.173 2.633,215.274 2.893
+                    
+                    M238.808 3.803 C 238.535 4.475,235.886 10.709,232.920 17.655
+                    C 229.954 24.601,227.467 30.432,227.393 30.613 C 227.287 30.873,228.082 30.927,231.192 30.870
+                    L 235.125 30.799 241.145 16.756 C 244.456 9.032,247.165 2.682,247.165 2.645
+                    C 247.165 2.608,245.396 2.578,243.235 2.578 L 239.304 2.579 238.808 3.803
+                    
+                    M260.052 16.753
+                    L 260.052 30.928 264.046 30.928 L 268.041 30.928 268.041 16.753 L 268.041 2.577 264.046 2.577
+                    L 260.052 2.577 260.052 16.753
+                    
+                    M285.052 5.785 L 285.052 8.993 292.977 9.071
+                    C 301.719 9.158,301.969 9.203,303.954 11.046 C 307.039 13.911,306.850 19.975,303.589 22.766
+                    C 301.934 24.183,300.707 24.485,296.604 24.485 L 293.041 24.485 293.041 20.747
+                    L 293.041 17.010 289.046 17.010 L 285.052 17.010 285.052 23.969 L 285.052 30.928 292.332 30.927
+                    C 302.806 30.925,305.892 30.262,309.558 27.226 C 315.787 22.067,315.668 11.115,309.327 6.066
+                    C 305.779 3.240,302.557 2.577,292.363 2.577 L 285.052 2.577 285.052 5.785
+                    
+                    M329.897 5.670
+                    L 329.897 8.763 340.979 8.763 L 352.062 8.763 352.062 5.670 L 352.062 2.577 340.979 2.577
+                    L 329.897 2.577 329.897 5.670
+                    
+                    M385.605 9.319 C 388.779 10.685,390.710 14.748,389.945 18.452
+                    C 387.973 28.009,374.742 26.524,374.742 16.746 C 374.742 10.667,380.148 6.972,385.605 9.319
+                    
+                    M329.897 16.624 L 329.897 19.588 340.979 19.588 L 352.062 19.588 352.062 16.624 L 352.062 13.660 340.979 13.660
+                    L 329.897 13.660 329.897 16.624
+
+                    
+                    M329.897 27.835 L 329.897 30.928 340.979 30.928
+                    L 352.062 30.928 352.062 27.835
+                    L 352.062 24.742 340.979 24.742
+                    L 329.897 24.742 329.897 27.835 " xstroke="#777" xstroke-width=".5px" fill="#ffffff"
+                    fill-rule="evenodd"></path>
+            </g>
+        </svg>
+
+    </div>
+
+    <script>
+        const p = new URLSearchParams(window.location.search)
+        const t = Number.parseInt(p.get(" t")) || 0; const s = Number.parseFloat(p.get("s")) || 1.0; const
+            dom_logo_div = document.getElementById("logo_container"); if (t === 0) {
+                dom_logo_div.style.visibility = "visible"
+                    ;
+            } else {
+            setTimeout(() => dom_logo_div.style.visibility = "visible", t);
+        }
+
+        if (s != 1.0) {
+            document.querySelector('video').playbackRate = s;
+        }
+    </script>
+
+    <script>
+        function update() {
+            const dom_video_logo = document.getElementById("logo_container");
+            console.log(dom_video_logo.offsetHeight + dom_video_logo.offsetTop);
+            const dom_coming_soon = document.getElementById("coming_soon");
+            const value = dom_video_logo.offsetHeight - 40;
+            document.documentElement.style.setProperty("--top_coming_soon_offset", value);
+        };
+
+        document.body.onresize = update;
+        update();
+    </script>
+
+</body>
+
+</html>

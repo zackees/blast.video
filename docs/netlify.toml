@@ -1,0 +1,44 @@
+[build]
+# Directory to change to before starting a build.
+# This is where we will look for package.json/.nvmrc/etc.
+# If not set, defaults to the root directory.
+base = "docs/"
+publish = ""
+functions = "netlify/functions/"
+
+[[redirects]]
+from = "/api/*"
+to = "https://app.blast.video/:splat"
+status = 200
+force = true
+headers = { X-API-KEY = "b8720017-0a10-4588-b34f-f5ffef574445" }
+
+[[redirects]]
+from = "/support"
+to = "https://givesendgo.com/blastvideo"
+status = 302
+force = true
+
+[[redirects]]
+from = "/donate"
+to = "https://givesendgo.com/blastvideo"
+status = 302
+force = true
+
+[[redirects]]
+from = "/promo_video"
+to = "https://zachvorhies.com/misc/blastvideo.mp4"
+status = 302
+force = true
+
+[[redirects]]
+from = "/preview"
+to = "/?preview=true"
+status = 302
+force = true
+
+[[redirects]]
+from = "/pressrelease"
+to = "https://docs.google.com/document/d/1XR1ULKoDNwCdhWiCi6QO3O1fN1zrKd-md3wrL3LDvLs/edit"
+status = 302
+force = true
